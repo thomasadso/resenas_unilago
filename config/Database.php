@@ -17,9 +17,9 @@ class Database {
         if (self::$pdoInstance === null) {
             $host = getenv('PGHOST') ?: '127.0.0.1';
             $port = getenv('PGPORT') ?: '5432';
-            $db   = getenv('PGDATABASE') ?: 'unilago_prod';
+            $db   = getenv('PGDATABASE');
             $user = getenv('PGUSER') ?: 'postgres';
-            $pass = getenv('PGPASSWORD') ?: '';
+            $pass = getenv('PGPASSWORD');
 
             try {
                 $dsn = "pgsql:host=$host;port=$port;dbname=$db";
