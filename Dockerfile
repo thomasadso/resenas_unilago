@@ -17,7 +17,8 @@ RUN pecl install mongodb && docker-php-ext-enable mongodb
 RUN a2enmod rewrite
 
 # Mapear el código fuente al directorio raíz del servidor HTTP interno
-COPY . /var/www/html/
+COPY . /var/www/app/
+RUN rm -rf /var/www/html/* && cp -r /var/www/app/public/* /var/www/html/
 
 # Configurar Apache para que escuche en el puerto estándar asignado por Render
 EXPOSE 80
